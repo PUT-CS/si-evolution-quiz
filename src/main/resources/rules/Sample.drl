@@ -1,0 +1,18 @@
+package com.sample
+
+import java.util.Arrays
+
+import com.sample.EvolutionQuiz.Question
+import com.sample.EvolutionQuiz.Fact
+
+global Question nextQuestion
+
+
+rule "Say sth +"
+	when
+		f: Fact(question == "Test1?" && answer == "Yes")
+	then
+		nextQuestion.setQuestion("Test2?");
+		nextQuestion.addOption("OK");
+		nextQuestion.addOption("NO");
+end
